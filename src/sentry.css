@@ -1,0 +1,45 @@
+:root {
+  color-scheme: light;
+  font-family: "Source Sans 3", ui-sans-serif, system-ui, sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+html { min-width: 320px; overflow-x: hidden; background: #f8fafc; font-family: "Source Sans 3", ui-sans-serif, system-ui, sans-serif; }
+body { margin: 0; min-width: 320px; min-height: 100vh; overflow-x: hidden; }
+button, input, select { font: inherit; }
+button, a { -webkit-tap-highlight-color: transparent; }
+button { touch-action: manipulation; }
+
+.font-mono { font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace !important; }
+.shadow-panel { box-shadow: 0 1px 2px rgba(15, 23, 42, .035), 0 8px 30px rgba(15, 23, 42, .035); }
+.bg-grid {
+  background-color: #f8fafc;
+  background-image: linear-gradient(rgba(148, 163, 184, .12) 1px, transparent 1px), linear-gradient(90deg, rgba(148, 163, 184, .12) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.form-label { display: block; margin-bottom: .45rem; font-size: .8125rem; font-weight: 600; color: #475569; }
+.form-control {
+  display: block;
+  width: 100%;
+  min-height: 2.75rem;
+  border: 1px solid #cbd5e1;
+  border-radius: .75rem;
+  background-color: white;
+  padding: .625rem .875rem;
+  color: #0f172a;
+  font-size: .875rem;
+  outline: none;
+  transition: border-color .15s ease, box-shadow .15s ease;
+}
+.form-control:focus { border-color: #3b82f6; box-shadow: 0 0 0 4px #eff6ff; }
+.form-control[readonly] { background-color: #f8fafc; color: #64748b; }
+
+.sentry-scrollbar { scrollbar-width: thin; scrollbar-color: #334155 transparent; }
+.sentry-scrollbar::-webkit-scrollbar { width: 5px; }
+.sentry-scrollbar::-webkit-scrollbar-thumb { border-radius: 10px; background: #334155; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+}

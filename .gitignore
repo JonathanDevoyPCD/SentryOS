@@ -7,12 +7,13 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 pnpm-lock.yaml
-package-lock.json
 yarn.lock
 
 node_modules
 dist
 dist-ssr
+output/
+.playwright-cli/
 *.local
 
 # Editor directories and files
