@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import Chart from "react-apexcharts";
+import ChartModule from "react-apexcharts";
 import {
   ArrowDownIcon,
   ArrowPathIcon,
@@ -35,6 +35,8 @@ import {
   WrenchScrewdriverIcon,
 } from "@heroicons/react/24/outline";
 import { activity, devices, trafficOptions, trafficSeries } from "./mock-data";
+
+const Chart = ChartModule.default ?? ChartModule;
 
 export function StatusDot({ tone = "green", pulse = false }) {
   const tones = { green: "bg-emerald-500", blue: "bg-blue-500", amber: "bg-amber-500", red: "bg-rose-500", slate: "bg-slate-400" };
