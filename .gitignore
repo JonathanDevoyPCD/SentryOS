@@ -16,6 +16,11 @@ output/
 .playwright-cli/
 *.local
 
+# Private router evidence and downloaded firmware-analysis artifacts
+TendaScreenshots/
+firmware-analysis/artifacts/
+firmware-analysis/extracted/
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

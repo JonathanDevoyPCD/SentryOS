@@ -8,7 +8,7 @@ After the first Pages deployment, the prototype will be available at:
 
 **https://jonathandevoypcd.github.io/SentryOS/**
 
-The dashboard uses realistic simulated data so we can settle the product design before binding it to a router API.
+The dashboard uses realistic simulated data so we can settle the product design before binding it to a router API. A separate local-only, read-only bridge is now available for the stock AC10U interface; see [the local bridge guide](./docs/LOCAL-BRIDGE.md).
 
 ## Included screens
 
@@ -19,6 +19,7 @@ The dashboard uses realistic simulated data so we can settle the product design 
 - Firewall, access control and port forwarding
 - USB storage, WireGuard VPN and Dynamic DNS concepts
 - Router health, diagnostics, logs, backup and firmware safety gates
+- SentryAI command centre with guarded diagnostics, staged optimisation and reports
 
 Controls are deliberately non-destructive. Settings create a local "pending changes" state; they do not touch router hardware.
 
@@ -42,6 +43,16 @@ Hash-based routes and relative assets allow the same build to run under GitHub P
 The React interface is being kept separate from the future hardware adapter. Once the exact AC10U hardware revision and supported firmware base are confirmed, mock data can be replaced with an adapter for OpenWrt `ubus`/RPC or another verified local API.
 
 Firmware flashing remains out of scope until we have confirmed the board revision, SoC, flash layout, stock firmware backup and a tested recovery path.
+
+SentryAI currently runs deterministic mock analysis. Its policy layer permits read-only checks, requires confirmation for supported network changes and rejects firmware or bootloader actions. A future local backend will hold the user's AI API credential; no secret belongs in the browser build.
+
+## Project references
+
+- [Hardware readiness gate](./docs/HARDWARE-READINESS.md)
+- [AC10U v1.0 stock firmware analysis](./firmware-analysis/README.md)
+- [SentryAI operating model](./docs/SENTRY-AI.md)
+- [Local API contract](./docs/API-CONTRACT.md)
+- [Local read-only bridge](./docs/LOCAL-BRIDGE.md)
 
 ## Design and attribution
 

@@ -12,6 +12,8 @@ import {
   XMarkIcon,
 } from "@heroicons/react/24/outline";
 import { navigation, pageTitles } from "./sentry/mock-data";
+import SentryAIPage from "./sentry/ai/SentryAIPage";
+import ReportsPage from "./sentry/ReportsPage";
 import {
   DashboardPage,
   DevicesPage,
@@ -102,6 +104,8 @@ export default function App() {
           <Routes>
             <Route path="/dashboard" element={<DashboardPage guestEnabled={guestEnabled} setGuestEnabled={changeGuest} notify={notify} />} />
             <Route path="/network-map" element={<NetworkMapPage />} />
+            <Route path="/sentry-ai" element={<SentryAIPage markChanged={markChanged} notify={notify} />} />
+            <Route path="/reports" element={<ReportsPage notify={notify} />} />
             <Route path="/internet" element={<InternetPage markChanged={markChanged} />} />
             <Route path="/wifi" element={<WifiPage markChanged={markChanged} />} />
             <Route path="/guest" element={<GuestPage guestEnabled={guestEnabled} setGuestEnabled={setGuestEnabled} markChanged={markChanged} />} />

@@ -5,9 +5,12 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "bridge": "node --env-file=.env.local server/index.mjs",
     "build": "vite build",
     "preview": "vite preview",
-    "check": "vite build"
+    "check": "vite build",
+    "test": "node --test",
+    "verify": "npm run test && npm run build"
   },
   "dependencies": {
     "@fontsource/ibm-plex-mono": "5.2.7",

@@ -25,3 +25,11 @@ SentryOS should feel calm, technical and trustworthy. It is a local appliance in
 ## Integration boundary
 
 The current data is simulated. React views should consume a stable SentryOS data model so that a later `mock`, OpenWrt RPC or verified Tenda adapter can provide the same interface without redesigning the screens.
+
+## SentryAI principles
+
+- Treat AI output as a proposal, never as an executable router command.
+- Automatically allow read-only observations, explicitly confirm reversible configuration changes, and block firmware or bootloader operations.
+- Show evidence, expected impact and rollback for every proposed change.
+- Keep AI provider credentials in a future local service, never in the browser bundle.
+- Label simulated data and actions honestly until a verified hardware adapter is connected.

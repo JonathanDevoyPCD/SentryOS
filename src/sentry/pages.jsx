@@ -1,5 +1,4 @@
-import { useMemo, useState } from "react";
-import ChartModule from "react-apexcharts";
+import { lazy, Suspense, useMemo, useState } from "react";
 import {
   ArrowDownIcon,
   ArrowPathIcon,
@@ -28,15 +27,16 @@ import {
   ShieldCheckIcon,
   SignalIcon,
   SignalSlashIcon,
+  SparklesIcon,
   Squares2X2Icon,
   TvIcon,
   UserGroupIcon,
   WifiIcon,
   WrenchScrewdriverIcon,
 } from "@heroicons/react/24/outline";
-import { activity, devices, trafficOptions, trafficSeries } from "./mock-data";
+import { activity, devices } from "./mock-data";
 
-const Chart = ChartModule.default ?? ChartModule;
+const TrafficChart = lazy(() => import("./TrafficChart"));
 
 export function StatusDot({ tone = "green", pulse = false }) {
   const tones = { green: "bg-emerald-500", blue: "bg-blue-500", amber: "bg-amber-500", red: "bg-rose-500", slate: "bg-slate-400" };
@@ -129,8 +129,8 @@ export function DashboardPage({ guestEnabled, setGuestEnabled, notify }) {
       </Panel>
 
       <div className="grid gap-6 xl:grid-cols-[1.65fr_1fr]">
-        <Panel><PanelHeader title="Network traffic" subtitle="Combined WAN traffic over the last 24 hours" action={<button type="button" className="text-sm font-semibold text-blue-600 hover:text-blue-700">View report</button>} /><div className="px-3 pb-2 pt-3 sm:px-5"><Chart options={trafficOptions} series={trafficSeries} type="area" height={285} /></div></Panel>
-        <Panel><PanelHeader title="Quick controls" subtitle="Common network actions" /><div className="divide-y divide-slate-100 px-5 sm:px-6"><div className="flex items-center justify-between gap-4 py-4"><div><p className="text-sm font-semibold text-slate-800">Guest Wi-Fi</p><p className="text-xs text-slate-500">SentryOS Guest · isolated</p></div><Toggle enabled={guestEnabled} onChange={setGuestEnabled} label="Toggle guest Wi-Fi" /></div><button type="button" onClick={() => notify("Speed test started — simulated result: 94 / 18 Mbps") } className="flex min-h-14 w-full items-center justify-between py-3 text-left"><span className="flex items-center gap-3 text-sm font-semibold text-slate-700"><BoltIcon className="h-5 w-5 text-amber-500" />Run speed test</span><ChevronRightIcon className="h-4 w-4 text-slate-400" /></button><button type="button" onClick={() => notify("Network scan complete — no new devices") } className="flex min-h-14 w-full items-center justify-between py-3 text-left"><span className="flex items-center gap-3 text-sm font-semibold text-slate-700"><MagnifyingGlassIcon className="h-5 w-5 text-blue-500" />Scan for devices</span><ChevronRightIcon className="h-4 w-4 text-slate-400" /></button></div></Panel>
+        <Panel><PanelHeader title="Network traffic" subtitle="Combined WAN traffic over the last 24 hours" action={<button type="button" className="text-sm font-semibold text-blue-600 hover:text-blue-700">View report</button>} /><div className="px-3 pb-2 pt-3 sm:px-5"><Suspense fallback={<div className="flex h-[285px] items-center justify-center text-sm text-slate-400">Loading traffic chart…</div>}><TrafficChart /></Suspense></div></Panel>
+        <Panel><PanelHeader title="Quick controls" subtitle="Common network actions" /><div className="divide-y divide-slate-100 px-5 sm:px-6"><a href="#/sentry-ai" className="flex min-h-14 w-full items-center justify-between py-3 text-left"><span className="flex items-center gap-3 text-sm font-semibold text-blue-700"><SparklesIcon className="h-5 w-5 text-blue-600" />Ask SentryAI</span><ChevronRightIcon className="h-4 w-4 text-slate-400" /></a><div className="flex items-center justify-between gap-4 py-4"><div><p className="text-sm font-semibold text-slate-800">Guest Wi-Fi</p><p className="text-xs text-slate-500">SentryOS Guest · isolated</p></div><Toggle enabled={guestEnabled} onChange={setGuestEnabled} label="Toggle guest Wi-Fi" /></div><button type="button" onClick={() => notify("Speed test started — simulated result: 94 / 18 Mbps") } className="flex min-h-14 w-full items-center justify-between py-3 text-left"><span className="flex items-center gap-3 text-sm font-semibold text-slate-700"><BoltIcon className="h-5 w-5 text-amber-500" />Run speed test</span><ChevronRightIcon className="h-4 w-4 text-slate-400" /></button><button type="button" onClick={() => notify("Network scan complete — no new devices") } className="flex min-h-14 w-full items-center justify-between py-3 text-left"><span className="flex items-center gap-3 text-sm font-semibold text-slate-700"><MagnifyingGlassIcon className="h-5 w-5 text-blue-500" />Scan for devices</span><ChevronRightIcon className="h-4 w-4 text-slate-400" /></button></div></Panel>
       </div>
 
       <div className="grid gap-6 xl:grid-cols-[1.65fr_1fr]">

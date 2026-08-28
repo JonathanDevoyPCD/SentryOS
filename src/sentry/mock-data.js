@@ -6,6 +6,7 @@ import {
   CommandLineIcon,
   CpuChipIcon,
   DevicePhoneMobileIcon,
+  DocumentChartBarIcon,
   GlobeAltIcon,
   HomeIcon,
   KeyIcon,
@@ -15,6 +16,7 @@ import {
   ServerStackIcon,
   ShieldCheckIcon,
   SignalIcon,
+  SparklesIcon,
   Squares2X2Icon,
   UsersIcon,
   WifiIcon,
@@ -27,6 +29,13 @@ export const navigation = [
     items: [
       { label: "Dashboard", path: "/dashboard", icon: HomeIcon },
       { label: "Network map", path: "/network-map", icon: MapIcon },
+    ],
+  },
+  {
+    label: "Intelligence",
+    items: [
+      { label: "SentryAI", path: "/sentry-ai", icon: SparklesIcon, badge: "AI" },
+      { label: "Reports", path: "/reports", icon: DocumentChartBarIcon },
     ],
   },
   {
