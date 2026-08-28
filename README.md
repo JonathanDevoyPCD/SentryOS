@@ -13,6 +13,7 @@ The dashboard uses realistic simulated data so we can settle the product design 
 ## Included screens
 
 - Network overview and live topology
+- Editable modular home map with estimated Wi-Fi coverage, router/device placement and a walk-test path for future measured readings
 - Frogfoot/DHCP internet status and WAN settings
 - 2.4 GHz, 5 GHz, guest and IoT Wi-Fi controls
 - LAN, DHCP, connected devices and device history

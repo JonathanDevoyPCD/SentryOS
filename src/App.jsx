@@ -14,6 +14,7 @@ import {
 import { navigation, pageTitles } from "./sentry/mock-data";
 import SentryAIPage from "./sentry/ai/SentryAIPage";
 import ReportsPage from "./sentry/ReportsPage";
+import HomeMapPage from "./sentry/HomeMapPage";
 import {
   DashboardPage,
   DevicesPage,
@@ -104,6 +105,7 @@ export default function App() {
           <Routes>
             <Route path="/dashboard" element={<DashboardPage guestEnabled={guestEnabled} setGuestEnabled={changeGuest} notify={notify} />} />
             <Route path="/network-map" element={<NetworkMapPage />} />
+            <Route path="/home-map" element={<HomeMapPage notify={notify} />} />
             <Route path="/sentry-ai" element={<SentryAIPage markChanged={markChanged} notify={notify} />} />
             <Route path="/reports" element={<ReportsPage notify={notify} />} />
             <Route path="/internet" element={<InternetPage markChanged={markChanged} />} />

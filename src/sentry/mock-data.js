@@ -29,6 +29,7 @@ export const navigation = [
     items: [
       { label: "Dashboard", path: "/dashboard", icon: HomeIcon },
       { label: "Network map", path: "/network-map", icon: MapIcon },
+      { label: "Home map", path: "/home-map", icon: MapIcon },
     ],
   },
   {
